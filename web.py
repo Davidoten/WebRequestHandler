@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qsl, urlparse
-import time
+
 
 class WebRequestHandler(BaseHTTPRequestHandler):
     def url(self):
@@ -13,28 +13,23 @@ class WebRequestHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-Type", "text/html")
         self.end_headers()
-        self.wfile.write(self.get_response().encode("utf-8"))
+        self.wfile.write(self.generate_dynamic_html().encode("utf-8"))
 
-        print("\nRequest Information:")
-        print(f"Host: {self.headers['Host']}")
-        print(f"User-Agent: {self.headers['User-Agent']}")
-        print(f"Path: {self.path}")
-
-    def get_response(self):
-        response_html = f"""
-        <h1> Hola Web </h1>
-        <p> URL Parse Result : {self.url()}         </p>
-        <p> Path Original: {self.path}         </p>
-        <p> Headers: {self.headers}      </p>
-        <p> Query: {self.query_data()}   </p>
-        """
+    def generate_dynamic_html(self):
         
-        print("\nResponse Information:")
-        print(f"Content-Type: text/html")
-        print(f"Server: {self.version_string()}")
-        print(f"Date: {self.date_time_string()}")
+        path = self.url().path.strip('/')
+        query_params = self.query_data()
 
-        return response_html
+        if path.startswith("proyecto"):
+            try:
+                _, project_name = path.split('/')
+                author = query_params.get("autor", "desconocido")
+                return f"<h1>Proyecto: {project_name} Autor: {author}</h1>"
+            except ValueError:
+                return "<h1>Error: Formato de URL incorrecto</h1>"
+        else:
+            return "<h1>Ruta no reconocida</h1>"
+
 
 if __name__ == "__main__":
     PORT = 8000
