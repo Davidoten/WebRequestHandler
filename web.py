@@ -1,35 +1,30 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from urllib.parse import parse_qsl, urlparse
-
+from urllib.parse import urlparse
 
 class WebRequestHandler(BaseHTTPRequestHandler):
-    def url(self):
-        return urlparse(self.path)
-
-    def query_data(self):
-        return dict(parse_qsl(self.url().query))
-
     def do_GET(self):
-        self.send_response(200)
+        if self.path == '/':
+            self.serve_home_page()
+        else:
+            self.serve_404_error()
+
+    def serve_home_page(self):
+        try:
+            with open('home.html', 'r') as file:
+                content = file.read()
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html")
+            self.end_headers()
+            self.wfile.write(content.encode("utf-8"))
+        except FileNotFoundError:
+            self.serve_404_error()
+
+    def serve_404_error(self):
+        self.send_response(404)
         self.send_header("Content-Type", "text/html")
         self.end_headers()
-        self.wfile.write(self.generate_dynamic_html().encode("utf-8"))
-
-    def generate_dynamic_html(self):
-        
-        path = self.url().path.strip('/')
-        query_params = self.query_data()
-
-        if path.startswith("proyecto"):
-            try:
-                _, project_name = path.split('/')
-                author = query_params.get("autor", "desconocido")
-                return f"<h1>Proyecto: {project_name} Autor: {author}</h1>"
-            except ValueError:
-                return "<h1>Error: Formato de URL incorrecto</h1>"
-        else:
-            return "<h1>Ruta no reconocida</h1>"
-
+        error_message = "<h1>Error 404: Página no encontrada</h1>"
+        self.wfile.write(error_message.encode("utf-8"))
 
 if __name__ == "__main__":
     PORT = 8000
