@@ -32,7 +32,7 @@ contenido = {
     <title>Proyecto Web Estática</title>
 </head>
 <body>
-    <h1>Ana Lee</h1>
+    <h1>Juan</h1>
     <h2>Recomendación de libros</h2>
     <p>El proyecto consiste en el diseño de un sitio que muestra la información de distintos libros. La información se obtiene de una base de datos que se actualiza cada vez que se agrega un nuevo libro. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam faucibus sapien, nec eleifend libero pulvinar a. Donec suscipit tortor quis velit placerat, et finibus nibh fermentum...</p>
     <h2>Tecnologías</h2>
@@ -43,7 +43,7 @@ contenido = {
     </ul>
 </body>
 </html>""",
-    '/proyecto/4': """<!doctype html>
+    '/proyecto/2': """<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -51,7 +51,7 @@ contenido = {
     <title>Proyecto Web App - MeFalta</title>
 </head>
 <body>
-    <h1>Ana Lee</h1>
+    <h1>Juan</h1>
     <h2>No Falta - ¿Qué película o serie me falta ver?</h2>
     <p>El proyecto MeFalta permite a los usuarios llevar un registro de las películas y series que han visto y las que les falta por ver. La aplicación proporciona recomendaciones personalizadas basadas en el historial de visualización...</p>
     <h2>Tecnologías</h2>
@@ -62,7 +62,7 @@ contenido = {
     </ul>
 </body>
 </html>""",
-    '/proyecto/6': """<!doctype html>
+    '/proyecto/3': """<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -70,7 +70,7 @@ contenido = {
     <title>Proyecto Web App - Foto22</title>
 </head>
 <body>
-    <h1>Ana Lee</h1>
+    <h1>Juan</h1>
     <h2>Foto22 - Web para gestión de fotos</h2>
     <p>Foto22 es una plataforma en línea para la gestión y organización de fotos. Permite a los usuarios subir, categorizar y compartir sus fotos con facilidad. La aplicación incluye características como la búsqueda de fotos y la creación de álbumes...</p>
     <h2>Tecnologías</h2>
