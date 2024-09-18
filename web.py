@@ -43,7 +43,7 @@ contenido = {
     </ul>
 </body>
 </html>""",
-    '/proyecto/2': """<!doctype html>
+    '/proyecto/4': """<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
@@ -52,7 +52,7 @@ contenido = {
 </head>
 <body>
     <h1>Ana Lee</h1>
-    <h2>MeFalta - ¿Qué película o serie me falta ver?</h2>
+    <h2>No Falta - ¿Qué película o serie me falta ver?</h2>
     <p>El proyecto MeFalta permite a los usuarios llevar un registro de las películas y series que han visto y las que les falta por ver. La aplicación proporciona recomendaciones personalizadas basadas en el historial de visualización...</p>
     <h2>Tecnologías</h2>
     <ul>
@@ -62,7 +62,7 @@ contenido = {
     </ul>
 </body>
 </html>""",
-    '/proyecto/3': """<!doctype html>
+    '/proyecto/6': """<!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
